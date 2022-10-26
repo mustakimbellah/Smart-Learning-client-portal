@@ -1,11 +1,30 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
-const leftSideNav = () => {
+
+const LeftSideNav = () => {
+
+    const [categories, setCategories] = useState([]);
+
+    useEffect(() => {
+        fetch('http://localhost:5000/learning-categories')
+            .then(res => res.json())
+            .then(data => setCategories(data));
+    }, [])
+
     return (
         <div>
-            <h2>This is left side nav</h2>
+            <h2>All Category : {categories.length}</h2>
+            <div>
+                {
+                    categories.map(category => <p key={category.id}>
+                        <Link className='p-2 border border-info bg-info  text-white text-decoration-none' to={`/category/${category.id}`}>{category.name}</Link>
+                    </p>)
+                }
+            </div>
         </div>
     );
 };
 
-export default leftSideNav;
+export default LeftSideNav;
