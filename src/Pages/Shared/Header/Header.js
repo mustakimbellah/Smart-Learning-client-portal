@@ -4,10 +4,17 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import photo from '../../../Photo/photo.jpg';
+import Button from 'react-bootstrap/Button';
+import { Link } from 'react-router-dom';
+import { useContext } from 'react';
+import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
+import { Image } from 'react-bootstrap';
+import { FaUser } from 'react-icons/fa';
 
 const Header = () => {
+    const { user } = useContext(AuthContext);
     return (
-        <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
+        <Navbar collapseOnSelect className='mb-4' expand="lg" bg="light" variant="light">
             <Container>
                 <img
                     alt="logo"
@@ -30,8 +37,14 @@ const Header = () => {
                             <NavDropdown.Item href="#action/3.1">Light</NavDropdown.Item>
                         </NavDropdown>
                         <Nav.Link eventKey={2} href="#memes">
-                            Dank memes
+                            {user?.photoURL ?
+                                <Image style={{ height: '40px' }} roundedCircle src={user?.photoURL}></Image>
+                                :
+                                <FaUser></FaUser>
+                            }
                         </Nav.Link>
+                        <Nav.Link href="#memes">{user?.displayName}</Nav.Link>
+                        <Link to='/login'><Button variant="outline-success">Log In</Button></Link>
                     </Nav>
                 </Navbar.Collapse>
             </Container>
