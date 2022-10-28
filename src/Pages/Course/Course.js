@@ -1,6 +1,6 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
-import Card from '../Course/Card/Card';
+import CartPart from './CartPart/CartPart';
 
 const Course = () => {
     const [categories, setCategories] = useState([]);
@@ -34,8 +34,8 @@ const Course = () => {
                                     {
                                         categories.map(news =>
                                             <div className="col-12 col-md-6">
-                                                <Card key={news._id}
-                                                    news={news}></Card>
+                                                <CartPart key={news._id}
+                                                    news={news}></CartPart>
                                             </div>
                                         )
                                     }
@@ -47,7 +47,7 @@ const Course = () => {
 
                 </div>
             </div>
-        </div>
+        </div >
     );
 };
 
