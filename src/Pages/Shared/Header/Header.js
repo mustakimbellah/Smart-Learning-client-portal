@@ -1,13 +1,10 @@
 import React, { useContext } from 'react';
-import { Image } from 'react-bootstrap';
+import { OverlayTrigger, Tooltip } from 'react-bootstrap';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import { FaUser } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
-import LeftSideNav from '../LeftSideNav/LeftSideNav';
-import Button from 'react-bootstrap/Button';
 import photo from '../../../Photo/photo.jpg';
 import { useState } from 'react';
 
@@ -15,12 +12,13 @@ import { useState } from 'react';
 
 const Header = () => {
 
-    const [theme, setTheme] = useState('Theme Day');
+    const [theme, setTheme] = useState('Theme: Day');
+
     const handleToggleTheme = () => {
-        if (theme === 'Theme Night')
-            setTheme('Theme Day');
+        if (theme === 'Theme:Night')
+            setTheme('Theme:Day');
         else
-            setTheme('Theme Night')
+            setTheme('Theme:Night')
     }
 
     const { user, logOut } = useContext(AuthContext);
@@ -34,53 +32,57 @@ const Header = () => {
     return (
         <Navbar collapseOnSelect className='mb-4' expand="lg" bg="light" variant="light">
             <Container>
-                <img
-                    alt="logo"
-                    src={photo}
-                    width="100"
-                    height="100"
-                    className="d-inline-block align-top"
-                />
-                <Navbar.Brand><Link to='/'>Smart Learning</Link></Navbar.Brand>
+
+                <Navbar.Brand className='d-flex'>
+                    <img
+                        alt="logo"
+                        src={photo}
+                        width="70"
+                        height="70"
+                        className="d-inline-block align-top"
+                    />
+                    <h1>Smart Learning</h1>
+                </Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="me-auto">
-                        <Nav.Link href="#features">FAQ</Nav.Link>
-                        <Nav.Link href="/blog">Blog</Nav.Link>
-                        <Nav.Link onClick={handleToggleTheme} href="#features">{theme}</Nav.Link>
+                        <Nav.Link href="/"><Link to={'/'} className='btn btn-primary fw-bold'>Courses</Link></Nav.Link>
+
+                        <Nav.Link href="#features"><Link to={'/faq'} className='btn btn-primary fw-bold'>FAQ</Link></Nav.Link>
+
+                        <Nav.Link href="/blog"><Link to={'/blog'} className='btn btn-primary fw-bold'>Blog</Link></Nav.Link>
+
+
+                        <Nav.Link href=''><Link to={''} onClick={handleToggleTheme} className='btn btn-primary fw-bold'>{theme}</Link></Nav.Link>
 
                     </Nav>
                     <Nav>
-                        <>
-                            {
-                                user?.uid ?
-                                    <>
-                                        <span>{user?.displayName}</span>
-                                        <Button variant="light" onClick={handleLogOut}>Log out</Button>
-                                    </>
-                                    :
-                                    <>
-                                        <Link to='/login'>Login</Link>
-                                        <Link to='/register'>Register</Link>
-                                    </>
-                            }
-
-
-                        </>
-                        <Link to="/profile">
-                            {user?.photoURL ?
-                                <Image
-                                    style={{ height: '30px' }}
-                                    roundedCircle
-                                    src={user?.photoURL}>
-                                </Image>
-                                : <FaUser></FaUser>
-                            }
-                        </Link>
+                        {
+                            !user?.uid ?
+                                <Nav.Link href="#deets" ><Link className='btn btn-primary fw-bold' to={'/login'}>Login</Link></Nav.Link>
+                                :
+                                <>
+                                    <Nav.Link href="#dets"><Link className='btn btn-primary fw-bold' onClick={handleLogOut}>LogOut</Link></Nav.Link>
+                                    <OverlayTrigger
+                                        key='bottom'
+                                        placement='bottom'
+                                        overlay={
+                                            <Tooltip id={`tooltip-bottom`}>
+                                                <strong>{user?.displayName}</strong>.
+                                            </Tooltip>
+                                        }
+                                    >
+                                        <img
+                                            alt="logo"
+                                            src={user?.photoURL}
+                                            width="50"
+                                            height="50"
+                                            className="d-inline-block align-top rounded-circle m-1"
+                                        />
+                                    </OverlayTrigger>
+                                </>
+                        }
                     </Nav>
-                    <div className='d-lg-none'>
-                        <LeftSideNav></LeftSideNav>
-                    </div>
                 </Navbar.Collapse>
             </Container>
         </Navbar>

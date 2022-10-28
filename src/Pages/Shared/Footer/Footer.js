@@ -2,9 +2,9 @@ import React from 'react';
 
 const Footer = () => {
     return (
-        <div>
-            <p><small>Copyright coming soon</small></p>
-        </div>
+        <div className="mt-auto text-center">
+            <small>©Copyright 2022.<br /> All rights reserved. Powered by S M Mustakim Bellah</small>
+        </div >
     );
 };
 

@@ -9,7 +9,8 @@ const Home = () => {
     return (
         <div>
 
-            <NewsSummaryCard></NewsSummaryCard>
+
+            {/* <NewsSummaryCard></NewsSummaryCard> */}
 
             {/* <h2>Dragon News Home: {allNews.length}</h2>
             {
