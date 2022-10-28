@@ -39,7 +39,7 @@ export const routes = createBrowserRouter([
             {
                 path: '/course/:id',
                 element: <CartPartDetails></CartPartDetails>,
-                loader: () => fetch('http://localhost:5000/news/01')
+                loader: () => fetch('https://smart-learning-server-alpha.vercel.app/news/01')
 
             },
             {
