@@ -15,6 +15,7 @@ const AuthProvider = ({ children }) => {
 
     const [loading, setLoading] = useState(true);
 
+
     const providerLogin = (provider) => {
         return signInWithPopup(auth, provider);
     }
