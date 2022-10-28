@@ -1,5 +1,6 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import CartPart from './CartPart/CartPart';
 
 const Course = () => {
@@ -20,14 +21,15 @@ const Course = () => {
                     <div className="col-5 col-md-4 col-lg-3">
                         {
                             categories.map(category =>
-                                <div className='btn btn-primary w-75 my-2'>{category.title}</div>
+                                <div>
+                                    <Link to={`/course/${category._id}`} className='w-100 my-2'>{category.title}</Link>
+                                </div>
                             )
                         }
 
                     </div>
 
                     <div className="col-7 col-md-8 col-lg-9">
-                        <h1 className='text-center text-success'>Courses</h1>
                         <div className='text-success'>
                             <div className="container">
                                 <div className="row d-flex">

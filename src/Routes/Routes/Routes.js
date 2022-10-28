@@ -1,5 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../../layout/Main";
+import Checkout from "../../Pages/Checkout/Checkout";
+import CartPartDetails from "../../Pages/Course/CartPartDetails/CartPartDetails";
 import Course from "../../Pages/Course/Course";
 import FoundError from "../../Pages/FoundError/FoundError";
 import Login from "../../Pages/Login/Login/Login";
@@ -33,10 +35,23 @@ export const routes = createBrowserRouter([
                 path: '/',
                 element: <Course></Course>
             },
+
             {
-                path: '*',
-                element: <FoundError></FoundError>
+                path: '/course/:id',
+                element: <CartPartDetails></CartPartDetails>,
+                loader: () => fetch('http://localhost:5000/news/01')
+
+            },
+            {
+                path: '/checkout',
+                element: <Checkout></Checkout>
             }
+
         ]
+
+    },
+    {
+        path: '*',
+        element: <FoundError></FoundError>
     }
 ])

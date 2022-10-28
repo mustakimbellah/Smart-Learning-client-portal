@@ -45,6 +45,13 @@ const Login = () => {
             <h1 className='text-center text-dark mb-3 fw-bolder'>Login</h1>
             <div className='row d-flex justify-content-center'>
                 <div className="col-9 col-md-7 ">
+
+                    <div className='d-flex m-2'>
+                        <Button className='d-inline mx-2' variant="success" onClick={() => providerLogin(GoogleProvider)}><FaGoogle></FaGoogle> Login with Google  <FaGoogle></FaGoogle></Button>
+
+                        <Button variant="success" onClick={() => providerLogin(GithubProvider)}><FaGithubSquare></FaGithubSquare> Login with Github <FaGithubSquare></FaGithubSquare></Button>
+                    </div>
+
                     <ButtonGroup vertical className='mx-auto w-100 gap-3 '>
                         <Form className='w-100' onSubmit={handleSubmit}>
                             <Form.Group className="mb-1 " controlId="formBasicEmail">
@@ -55,16 +62,15 @@ const Login = () => {
                                 <Form.Label>Password</Form.Label>
                                 <Form.Control type="password" name='password' placeholder="Password" />
                             </Form.Group>
-                            <Button variant="success" type="submit" className='w-100 mt-3'>
+                            <Button variant="success" type="submit" className=' mt-3'>
                                 Submit
                             </Button>
                             <br />
                             <strong className='text-danger'>{error}</strong>
                         </Form>
-                        <p>No account yet? <Link to={'/register'}>Register Now</Link></p>
+                        <p>Go to registration Pages? <Link to={'/register'}>Register Now</Link></p>
 
-                        <Button variant="success" onClick={() => providerLogin(GoogleProvider)}><FaGoogle></FaGoogle> Login with Google  <FaGoogle></FaGoogle></Button>
-                        <Button variant="success" onClick={() => providerLogin(GithubProvider)}><FaGithubSquare></FaGithubSquare> Login with Github <FaGithubSquare></FaGithubSquare></Button>
+
                     </ButtonGroup>
                 </div>
 

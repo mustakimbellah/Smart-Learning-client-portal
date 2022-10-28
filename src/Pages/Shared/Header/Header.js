@@ -46,23 +46,23 @@ const Header = () => {
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="me-auto">
-                        <Nav.Link href="/"><Link to={'/'} className='btn btn-primary fw-bold'>Courses</Link></Nav.Link>
+                        <Nav.Link href="/"><Link to={'/'} className='fw-bold'>Courses</Link></Nav.Link>
 
-                        <Nav.Link href="#features"><Link to={'/faqpart'} className='btn btn-primary fw-bold'>FAQ</Link></Nav.Link>
+                        <Nav.Link href="#features"><Link to={'/faq'} className=' fw-bold'>FAQ</Link></Nav.Link>
 
-                        <Nav.Link href="/blog"><Link to={'/blog'} className='btn btn-primary fw-bold'>Blog</Link></Nav.Link>
+                        <Nav.Link href="/blog"><Link to={'/blog'} className=' fw-bold'>Blog</Link></Nav.Link>
 
 
-                        <Nav.Link href=''><Link to={''} onClick={handleToggleTheme} className='btn btn-primary fw-bold'>{theme}</Link></Nav.Link>
+                        <Nav.Link href=''><Link to={''} onClick={handleToggleTheme} className='fw-bold'>{theme}</Link></Nav.Link>
 
                     </Nav>
                     <Nav>
                         {
                             !user?.uid ?
-                                <Nav.Link href="#deets" ><Link className='btn btn-primary fw-bold' to={'/login'}>Login</Link></Nav.Link>
+                                <Nav.Link href="#deets" ><Link className='fw-bold' to={'/login'}>Login</Link></Nav.Link>
                                 :
                                 <>
-                                    <Nav.Link href="#dets"><Link className='btn btn-primary fw-bold' onClick={handleLogOut}>LogOut</Link></Nav.Link>
+                                    <Nav.Link href="#dets"><Link className='fw-bold' onClick={handleLogOut}>LogOut</Link></Nav.Link>
                                     <OverlayTrigger
                                         key='bottom'
                                         placement='bottom'

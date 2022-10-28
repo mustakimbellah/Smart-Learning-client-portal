@@ -36,7 +36,7 @@ const Register = () => {
     }
 
     return (
-        <div className='container'>
+        <div className='container w-50'>
             <h2 className='text-center text-dark mb-3 fw-bolder'>Register</h2>
             <Form onSubmit={handleSubmit}>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -55,8 +55,8 @@ const Register = () => {
                     <Form.Label>Password</Form.Label>
                     <Form.Control type="password" name='password' placeholder="Password" />
                 </Form.Group>
-                <Button variant="primary" type="submit">
-                    Submit
+                <Button className="w-100" variant="primary" type="submit">
+                    Register
                 </Button>
                 <br />
                 <strong className='text-danger'>{error}</strong>
