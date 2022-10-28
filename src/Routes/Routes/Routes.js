@@ -29,7 +29,7 @@ export const routes = createBrowserRouter([
                 element: <Blog></Blog>
             },
             {
-                path: '/faqpart',
+                path: '/faqPart',
                 element: <FaqPart></FaqPart>
             },
             {
@@ -41,9 +41,6 @@ export const routes = createBrowserRouter([
                 path: '/course/:id',
                 element: <CartPartDetails></CartPartDetails>,
                 loader: ({ params }) => fetch(`https://smart-learning-server-alpha.vercel.app/news/${params.id}`)
-
-
-                // loader: () => fetch('https://smart-learning-server-alpha.vercel.app/news/01')
             },
             {
                 path: '/checkout',

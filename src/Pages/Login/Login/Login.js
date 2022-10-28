@@ -39,7 +39,7 @@ const Login = () => {
             })
 
     }
-    const handleSigninbygoogle = event => {
+    const handleSignInGoogle = event => {
         providerLogin(GoogleProvider)
             .then(result => {
                 const user = result.user;
@@ -58,7 +58,7 @@ const Login = () => {
                 <div className="col-9 col-md-7 ">
 
                     <div className='d-flex m-2'>
-                        <Button className='d-inline mx-2' variant="success" onClick={handleSigninbygoogle}><FaGoogle></FaGoogle> Login with Google  <FaGoogle></FaGoogle></Button>
+                        <Button className='d-inline mx-2' variant="success" onClick={handleSignInGoogle}><FaGoogle></FaGoogle> Login with Google  <FaGoogle></FaGoogle></Button>
 
                         <Button variant="success" onClick={() => providerLogin(GithubProvider)}><FaGithubSquare></FaGithubSquare> Login with Github <FaGithubSquare></FaGithubSquare></Button>
                     </div>
