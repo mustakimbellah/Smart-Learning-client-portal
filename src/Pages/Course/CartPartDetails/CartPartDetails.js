@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import { PDFDownloadLink, Page, Text, View, Document, StyleSheet } from '@react-pdf/renderer';
+import { useContext } from 'react';
+import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 
 const CartPartDetails = () => {
 
@@ -33,6 +35,7 @@ const CartPartDetails = () => {
         </Document>
     );
 
+    const { setCheckout } = useContext(AuthContext);
     const CartPartDetails = useLoaderData();
 
     const { title, details, image } = CartPartDetails;
@@ -47,9 +50,11 @@ const CartPartDetails = () => {
 
                 <img src={image} alt="" className='w-100' style={{ 'alignContent': 'center' }} />
                 <p className='text-success fw-bolder'> {details}</p>
-                <Link to={'/checkout'} className='btn btn-success' >Premium Access</Link>
+                <Link to={'/checkout'} className='btn btn-success'
+                    onClick={() => setCheckout(CartPartDetails)} > Premium Access
+                </Link>
             </div>
-        </div>
+        </div >
     );
 };
 
