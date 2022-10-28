@@ -14,7 +14,8 @@ const Checkout = () => {
                         <Card className='text-dark'>
                             <h3 className='text-center'>My Checkout</h3>
                             <Card.Body className='text-center'>
-                                <Card.Title>{checkout.title}</Card.Title>
+                                <Card.Title>
+                                    Course Title: {checkout.title}</Card.Title>
                                 <Card.Text>
                                     Course ID: {checkout._id}
                                 </Card.Text>
