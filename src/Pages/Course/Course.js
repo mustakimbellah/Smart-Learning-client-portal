@@ -1,10 +1,10 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
-// import NewsSummaryCard from '../Shared/NewsSummaryCard/NewsSummaryCard';
+import Card from '../Course/Card/Card';
 
 const Course = () => {
     const [categories, setCategories] = useState([]);
-    console.log(categories[0]);
+    // console.log(categories[0]);
 
     useEffect(() => {
         fetch('http://localhost:5000/news')
@@ -15,9 +15,9 @@ const Course = () => {
 
     return (
         <div>
-            <div className="container">
+            <div className="container-fluid">
                 <div className="row">
-                    <div className="col-4">
+                    <div className="col-5 col-md-4 col-lg-3">
                         {
                             categories.map(category =>
                                 <div className='btn btn-primary w-75 my-2'>{category.title}</div>
@@ -25,27 +25,26 @@ const Course = () => {
                         }
 
                     </div>
-                    <div className="col-8">
-                        <div className="container">
-                            <div className="row d-flex">
-                                <div className="">
-                                    {
-                                        categories.map(category =>
-                                            // <div className='m-2 '>{category.title}</div>
 
-                                            <div className='col-5 m-2'>
-                                                {/* <NewsSummaryCard
-                                                    news={category}>
-                                                </NewsSummaryCard> */}
+                    <div className="col-7 col-md-8 col-lg-9">
+                        <h1 className='text-center text-success'>Courses</h1>
+                        <div className='text-success'>
+                            <div className="container">
+                                <div className="row d-flex">
+                                    {
+                                        categories.map(news =>
+                                            <div className="col-12 col-md-6">
+                                                <Card key={news._id}
+                                                    news={news}></Card>
                                             </div>
                                         )
-
                                     }
                                 </div>
                             </div>
                         </div>
-
                     </div>
+
+
                 </div>
             </div>
         </div>
