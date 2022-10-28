@@ -8,6 +8,7 @@ import Login from "../../Pages/Login/Login/Login";
 import Register from "../../Pages/Login/Register/Register";
 import Blog from "../../Pages/Shared/Blog/Blog";
 import FaqPart from "../../Pages/Shared/FaqPart/FaqPart";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
 export const routes = createBrowserRouter([
     {
@@ -39,13 +40,15 @@ export const routes = createBrowserRouter([
             {
                 path: '/course/:id',
                 element: <CartPartDetails></CartPartDetails>,
-                loader: () => fetch('https://smart-learning-server-alpha.vercel.app/news/01')
+                loader: ({ params }) => fetch(`https://smart-learning-server-alpha.vercel.app/news/${params.id}`)
 
+
+                // loader: () => fetch('https://smart-learning-server-alpha.vercel.app/news/01')
             },
             {
                 path: '/checkout',
-                element: <Checkout></Checkout>
-            }
+                element: <PrivateRoute><Checkout></Checkout></PrivateRoute>
+            },
 
         ]
 
