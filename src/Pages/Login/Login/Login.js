@@ -5,7 +5,6 @@ import toast from 'react-hot-toast';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 import useTitle from '../../../hook/useTitle';
-import RightSideNav from '../../Shared/RightSideNav/RightSideNav'
 
 
 const Login = () => {
@@ -47,8 +46,7 @@ const Login = () => {
     return (
 
         <div>
-            <RightSideNav></RightSideNav>
-            <br />
+
             <Form onSubmit={handleSubmit}>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Email address</Form.Label>

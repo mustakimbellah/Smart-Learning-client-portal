@@ -1,14 +1,13 @@
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../../layout/Main";
 import Course from "../../Pages/Course/Course";
-import Home from "../../Pages/Home/Home/Home";
 import Login from "../../Pages/Login/Login/Login";
 import Register from "../../Pages/Login/Register/Register";
 import News from "../../Pages/News/News/News";
 import Profile from "../../Pages/Others/Profile/Profile";
 import TermsAndConditions from "../../Pages/Others/TermsAndContions/TermsAndConditions";
 import Blog from "../../Pages/Shared/Blog/Blog";
-import NewsSummaryCard from "../../Pages/Shared/NewsSummaryCard/NewsSummaryCard";
+import FaqPart from "../../Pages/Shared/FaqPart/FaqPart";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
 export const routes = createBrowserRouter([
@@ -23,7 +22,7 @@ export const routes = createBrowserRouter([
             // },
             {
                 path: '/category/:id',
-                element: <NewsSummaryCard></NewsSummaryCard>,
+                // element: <NewsSummaryCard></NewsSummaryCard>,
                 loader: ({ params }) => fetch(`http://localhost:5000/news/${params.id}`)
             },
             {
@@ -50,6 +49,10 @@ export const routes = createBrowserRouter([
             {
                 path: '/blog',
                 element: <Blog></Blog>
+            },
+            {
+                path: '/faqpart',
+                element: <FaqPart></FaqPart>
             },
             {
                 path: '/',

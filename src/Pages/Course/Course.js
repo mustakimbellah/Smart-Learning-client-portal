@@ -1,6 +1,6 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
-import NewsSummaryCard from '../Shared/NewsSummaryCard/NewsSummaryCard';
+// import NewsSummaryCard from '../Shared/NewsSummaryCard/NewsSummaryCard';
 
 const Course = () => {
     const [categories, setCategories] = useState([]);
@@ -34,9 +34,9 @@ const Course = () => {
                                             // <div className='m-2 '>{category.title}</div>
 
                                             <div className='col-5 m-2'>
-                                                <NewsSummaryCard
+                                                {/* <NewsSummaryCard
                                                     news={category}>
-                                                </NewsSummaryCard>
+                                                </NewsSummaryCard> */}
                                             </div>
                                         )
 
